@@ -18,7 +18,7 @@ class SelectPatternTest < Minitest::Test
     odds = []
     numbers.each do |number|
       # Your code goes here
-      odds << number if number.is_odd?
+      odds << number if number.odd?
     end
     assert_equal [1, 3, 5, 7, 9], odds
   end
@@ -28,6 +28,9 @@ class SelectPatternTest < Minitest::Test
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     selected = []
     # Your code goes here
+    words.each do |word|
+      selected << word if word.length == 3
+    end
     assert_equal ["bad", "cat", "dog", "red"], selected
   end
 
@@ -35,6 +38,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     # Your code goes here
+    selected = []
+    words.each do |word|
+      selected << word if word.length > 3
+    end
     assert_equal ["pill", "finger", "blue", "table"], selected
   end
 
@@ -42,6 +49,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     words = ["are", "you", "strike", "thinking", "belt", "piece", "warble", "sing", "pipe"]
     # Your code goes here
+    selected = []
+    words.each do |word|
+      selected << word if word[-1] == 'e'
+    end
     assert_equal ["are", "strike", "piece", "warble", "pipe"], selected
   end
 
@@ -49,6 +60,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     words = ["bring", "finger", "drought", "singing", "bingo", "purposeful"]
     # Your code goes here
+    selected = []
+    words.each do |word|
+      selected << word if word.end_with?'ing'
+    end
     assert_equal ["bring", "singing"], selected
   end
 
@@ -56,6 +71,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     words = ["four", "red", "five", "blue", "pizza", "purple"]
     # Your code goes here
+    selected = []
+    words.each do |word|
+      selected << word if word.include?('e')
+    end
     assert_equal ["red", "five", "blue", "purple"], selected
   end
 
@@ -63,6 +82,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     animals = ["tyrannosaurus", "narwhal", "eel", "achillesaurus", "qingxiusaurus"]
     # Your code goes here
+    dinosaurs = []
+    animals.each do |animal|
+      dinosaurs << animal if animal.end_with?'saurus'
+    end
     assert_equal ["tyrannosaurus", "achillesaurus", "qingxiusaurus"], dinosaurs
   end
 
@@ -70,6 +93,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     numbers = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
     # Your code goes here
+    floats = []
+    numbers.each do |number|
+      floats << number if number.class == Float
+    end
     assert_equal [1.4, 3.5, 4.9, 9.1, 8.0], floats
   end
 
@@ -77,6 +104,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
     # Your code goes here
+    arrays = []
+    elements.each do |element|
+      arrays << element if element.class == Array
+    end
     assert_equal [["dog"], [56, 3, 8]], arrays
   end
 
@@ -84,6 +115,10 @@ class SelectPatternTest < Minitest::Test
     # skip
     elements = ["cat", {:dog=>"fido"}, 23, {:stuff=>"things"}, "aimless", 43]
     # Your code goes here
+    hashes = []
+    elements.each do |element|
+      hashes << element if element.class == Hash
+    end
     assert_equal [{:dog=>"fido"}, {:stuff=>"things"}], hashes
   end
 
