@@ -75,7 +75,7 @@ class MapTest < Minitest::Test
     # skip
     animals = ["dog", "cat", "mouse", "frog", "platypus"]
     # Your code goes here
-    trimmed = animals.each do |animal|
+    trimmed = animals.map do |animal|
       animal.chop
     end
     assert_equal ["do", "ca", "mous", "fro", "platypu"], trimmed
